@@ -90,3 +90,5 @@ python fall_detection.py
 **Mifolo YEO** — B.Sc. Computer Systems and Software, Jesuit University of Abidjan, Côte d'Ivoire
 
 Research interest: Privacy-preserving real-time AI for elderly monitoring on resource-constrained edge devices
+
+_Proof-of-concept prototype — June 2026_
