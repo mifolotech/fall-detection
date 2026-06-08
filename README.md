@@ -17,7 +17,9 @@ This project explores a local, on-device alternative: detecting falls in real ti
 ## Method
 
 - **Pose Estimation:** MediaPipe Pose Landmarker (Lite model) detects 33 body keypoints per frame
-- **Fall Logic:** Computes the vertical distance between shoulder midpoint and ankle midpoint. When this distance falls below a threshold, a fall is detected
+- **Torso Angle:** Computes the angle between the shoulder midpoint and hip midpoint relative to the vertical axis. A standing person has an angle near 0°; a fallen person exceeds 60°
+- **Multi-frame Confirmation:** A fall is confirmed only after 15 consecutive frames above the threshold (~0.5 seconds), eliminating false positives from momentary bending
+- **Fall Logging:** Every confirmed fall is automatically recorded in `fall_log.csv` with a timestamp
 - **Inference:** Runs on CPU via TensorFlow Lite (embedded in MediaPipe) — no GPU required
 - **Privacy:** All processing is local. No frames or keypoints are transmitted externally
 
@@ -69,9 +71,9 @@ python fall_detection.py
 
 ## Current Limitations & Future Work
 
-- Threshold-based logic: works well in controlled environments, sensitive to camera angle
-- Next steps: angle-based torse detection, multi-frame confirmation to reduce false positives, fall event logging to CSV
-- Long-term goal: deploy on Raspberry Pi for real smart home scenarios
+- Angle threshold fixed at 60°: works well in controlled environments, sensitive to camera angle and distance
+- Next steps: adaptive threshold calibration per user, multi-person detection, alert system (sound/notification)
+- Long-term goal: deploy on Raspberry Pi 4 for real smart home scenarios with always-on monitoring
 
 ---
 
