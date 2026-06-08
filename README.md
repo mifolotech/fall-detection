@@ -1,7 +1,7 @@
 # Fall Detection System — Privacy-Preserving Edge AI
 
 A real-time fall detection prototype for elderly people in smart homes, running entirely on-device (CPU-only) with no cloud dependency and no external data transmission.
-
+![Demo](assets/demo.png)
 Built as a proof-of-concept for research on **privacy-preserving edge inference** using lightweight pose estimation.
 
 ---
